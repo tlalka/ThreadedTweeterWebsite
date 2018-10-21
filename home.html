@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>HTML Layout using Tables</title>
+    </head>
+
+    <style>
+        .main-header {
+            background-color: #2A606C;
+            margin-bottom: 2.5em;
+            font-family: "Segoe UI";
+            color: white; 
+            height: 84px;
+            display: flex;
+            align-items: center;
+            flex-direction:row;
+            justify-content: space-between;   
+        }
+
+        .main-body {
+            margin-bottom: 2.5em;
+            font-family: "Segoe UI";
+            display: flex;
+            justify-content: center;  
+            width: 100%;
+            
+        }
+
+        .main-footer {
+            background-color: #66B0C1;
+            margin-bottom: 2.5em;
+            font-family: "Segoe UI";
+            color: white; 
+            height: 65px;
+            display: flex;
+            align-items: center;
+            flex-direction:row;
+            justify-content: space-between;   
+        }
+
+        .sub-header {
+            display: flex;
+            align-items: center;
+            flex-direction:row;
+            justify-content: space-around;   
+            
+        }
+        
+      .sub-body0 {
+            width: 80%; 
+            max-width: 80%;
+            min-width: 100px;
+        }
+
+        .sub-body {
+            display: flex;
+            align-items: center;
+            flex-direction:row;
+            justify-content: space-between; 
+            vertical-align: text-top;
+        }
+
+        .h-1 {
+            font-size: 14px;
+            padding-right: 15px;
+            padding-left: 30px;
+            line-height: 1.7;
+            text-align: center;
+        }
+        .h-2 {
+            padding-right: 30px;
+            padding-left: 15px;
+        }
+        .h-3 {
+            font-weight: bold;
+            font-size: 38px;
+            line-height: 1.1;
+            padding-right: 10px;
+            padding-left: 10px;
+        }
+        .h-4 {
+            font-size: 12px;
+            line-height: 2;
+            padding-left: 10px;
+        }
+        .h-5 {
+            font-weight: bold;
+            font-size: 10px;
+            padding-right: 10px;
+        }
+        .h-6 {
+            font-weight: bold;
+            font-size: 10px;
+            padding-right: 10px;
+        }
+        .b-1 {
+            color: #A6A6A6; 
+            text-align: left;
+            font-size: 12px;
+        }
+        .b-2 {
+            color: #66B0C1; 
+            text-align: right;
+            font-size: 18px;
+            text-decoration: underline;
+        }
+        .b-4 {
+            color: #66B0C1; 
+            text-align: left;
+            font-size: 18px;
+            text-decoration: underline;
+        }
+        .b-5 {
+            color: #A6A6A6; 
+            text-align: right;
+            font-size: 12px;
+        }
+        .b-3 {
+            text-align: right;
+        }
+
+        input[type=text], select {
+            width: 80%;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        textarea[type=text2], select {
+            font-family: "Segoe UI"; 
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            height: 150px;
+            font-size:10pt;
+            width: 100%
+        }
+
+        input[type=submit] {
+            font-size: 12px;
+            width: 100%;
+            background-color: #66B0C1;
+            color: white;
+            padding: 10px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 550;
+        }
+
+        input[type=submit2] {
+            font-size: 12px;
+            width: 60px;
+            background-color: #66B0C1;
+            color: white;
+            padding: 10px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 550;
+            text-align: center;
+        }
+
+        input[type=link] {
+            font-size: 12px;
+            width: 100px;
+            background-color: #2A606C;
+            color: white;
+            padding: 10px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 550;
+            text-align: center;
+        }
+
+
+    </style>
+
+
+    <body style="background-color:#E5E5E5">
+
+
+        <div class = "main-header">
+
+            <div class = "sub-header">
+                <div class = "h-1">
+                    <div>
+                        Tweet 
+                    </div>
+                    <div>
+                        Together
+                    </div>
+
+                </div>
+                <div class = "h-2"><img src="logo.jpg" alt="Logo" style="width:70px;"></div>
+                <div class = "h-3">Threaded Tweeter</div>
+            </div>
+
+            <div class = "sub-header">
+
+                <div class = "h-4">
+                    <div>
+                        Username
+                    </div>
+                    <div>
+                        Password
+                    </div>
+                </div>
+
+                <div class = "h-4"> 
+                    <form>
+                        <div>
+                            <input type="text" id="username" name="username" >
+                        </div>
+                        <div>
+                            <input type="text" id="password" name="password" >
+                        </div>       
+
+                        </div>
+                    <div class = "h-5">  
+                        <input type="submit" value="Login with Twitter"> 
+                        </form>
+                </div>
+            </div>       
+        </div>
+
+
+        <div class = "main-body">
+
+
+            <div class = "sub-body0">
+                <div class = "sub-body">
+                    <div class="b-1">
+                        Auto splitting: off
+                    </div>
+                    <div class="b-2">
+                        Splitting options
+                    </div>
+                </div>
+                <form>
+                    <textarea type="text2" id="tweet" name="tweet">
+                    </textarea>
+
+                    <div class = "sub-body">
+                        <div class="b-4">
+                            Add picture
+                        </div>
+                        <div class="b-5">
+                            0/280 characters used
+                        </div>
+                    </div>
+
+                    
+                    <div class="b-3">
+                        <input type="submit2" value="submit">
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+        <div class = "main-footer">
+            <div class = "h-1">
+                <form action="http://google.com">
+                    <input type="link" value="help"> 
+                </form>   
+            </div>
+
+            <div class = "h-2"><img src="logo2.jpg" alt="Logo" style="width:55px;"></div>
+
+            <div class = "h-5">  
+                <form action="http://google.com">
+                    <input type="link" value="contact us"> 
+                </form>
+            </div>
+        </div> 
+    </body>
+
+</html>
