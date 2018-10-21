@@ -1,0 +1,15 @@
+Website decision document 
+
+Vanilla CSS:
+Vanilla is the lightest-weight option possible. Responsive interface can be achieved through flexbox positioning, but flexbox can be difficult to test and get right. Vanilla CSS will require us to manually create our own buttons if we want them to be stylish. Modal boxes also have to be created from scratch, and usually require a bit of JS too. 
+
+Bootstrap:
+Bootstraps is the most popular open source HTML, CSS and JS library. As a result it has a huge community and good documentation. Sass variables allow for quick testing, and grid system allows for more straight-forward responsive interface. It has various JS plug-ins and a huge library of pre-made styles and components. Bootstraps also supports flexbox positioning. It has a mobile first front-end framework. Bootstraps as a much larger code-base than we need for this application. Bootstraps was originally designed by Twitter and may give us a similar feel if we use it. 
+
+Pure.CSS:
+Pure.CSS is simple and lightweight. The layouts are responsive and made with both desktop and mobile in mind. It may not be the most popular, but the documentation is quite good. It’s easy to use and flexible. Extend pure allows you to quickly build on top of the pre-made buttons and layouts. 
+
+React:
+React is very popular and has a large community and thorough documentation. It supports reusable, custom components as well as its large library of pre-made components. It’s easy to create UI test cases and develop with its specialized debugging extension for chrome. Its large library may require more work and code for simple projects than what is necessary. It only handles the view of the MVC model.
+
+We are going to go with a mix of vanilla and pure CSS because we don’t expect to need large libraries for our simple site at this time. 
