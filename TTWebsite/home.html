@@ -3,199 +3,13 @@
 
     <head>
         <title>Threaded Tweeter homepage</title>
+        <link rel="Alternate stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <script src="js/jquery.min.js"></script>
         <script src="js/modal.js"></script>
     </head>
 
-    <style>
-        .main-header {
-            background-color: #2A606C;
-            margin-bottom: 2.5em;
-            font-family: "Segoe UI";
-            color: white; 
-            height: 84px;
-            display: flex;
-            align-items: center;
-            flex-direction:row;
-            justify-content: space-between;   
-        }
 
-        .main-body {
-            margin-bottom: 2.5em;
-            font-family: "Segoe UI";
-            display: flex;
-            justify-content: center;  
-            width: 100%;
-            flex: 1;
-
-        }
-
-        .main-footer {
-            background-color: #66B0C1;
-            font-family: "Segoe UI";
-            color: white; 
-            height: 65px;
-            display: flex;
-            align-items: center;
-            flex-direction:row;
-            justify-content: space-between;   
-        }
-
-        .sub-header0 {
-            display: flex;
-            align-items: center;
-            flex-direction:row;
-            width: 100%;
-            justify-content: space-around;  
-            max-width: 550px
-
-        }
-        .sub-header {
-            display: flex;
-            align-items: center;
-            flex-direction:row;
-            width: 100%;
-            justify-content: space-around;  
-            max-width: 400px
-
-        }
-
-        .sub-body0 {
-            width: 80%; 
-            max-width: 70%;
-            min-width: 100px;
-        }
-
-        .sub-body {
-            display: flex;
-            align-items: center;
-            flex-direction:row;
-            justify-content: space-between; 
-            vertical-align: text-top;
-        }
-
-        .h-1 {
-            font-size: 14px;
-            line-height: 1.7;
-            text-align: center;
-            padding-left: 10px
-        }
-        .h-2 {
-        }
-        .h-3 {
-            font-weight: bold;
-            font-size: 38px;
-            line-height: 1.1;
-        }
-        .h-4 {
-            font-size: 12px;
-            line-height: 2;
-        }
-        .h-5 {
-            font-weight: bold;
-            font-size: 10px;
-            padding-right: 10px
-        }
-        .h-6 {
-            font-weight: bold;
-            font-size: 10px;
-        }
-        .b-1 {
-            color: #A6A6A6; 
-            text-align: left;
-            font-size: 12px;
-        }
-        .b-2 {
-            color: #66B0C1; 
-            text-align: right;
-            font-size: 18px;
-            text-decoration: underline;
-        }
-        .b-4 {
-            color: #66B0C1; 
-            text-align: left;
-            font-size: 18px;
-            text-decoration: underline;
-        }
-        .b-5 {
-            color: #A6A6A6; 
-            text-align: right;
-            font-size: 12px;
-        }
-        .b-3 {
-            text-align: right;
-        }
-
-        input[type=text], select {
-            width: 80%;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-        textarea[type=text2], select {
-            font-family: "Segoe UI"; 
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-            height: 150px;
-            font-size:10pt;
-            width: 100%
-        }
-
-        input[type=submit] {
-            font-size: 12px;
-            width: 100%;
-            background-color: #66B0C1;
-            color: white;
-            padding: 10px 10px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: 550;
-        }
-
-        input[type=submit2] {
-            font-size: 12px;
-            width: 60px;
-            background-color: #66B0C1;
-            color: white;
-            padding: 10px 10px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: 550;
-            text-align: center;
-        }
-
-        input[type=link] {
-            font-size: 12px;
-            width: 100px;
-            background-color: #2A606C;
-            color: white;
-            padding: 10px 10px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: 550;
-            text-align: center;
-        }
-
-        .circlebutton{
-            background-color: lightgray;
-            border: none;
-            color: grey;
-            text-align: center;
-            font-size: 20px;
-            border-radius: 100%;
-            width: 25px;
-            height: 25px;
-        }
-
-        .circlebutton:hover{
-            box-shadow: 2px 3px 7px 0 rgba(0,0,0,0.24), 0 3px 10px 0 rgba(0,0,0,0.19);
-            transition: box-shadow 0.3s ease-in-out;
-        }
-
-    </style>
 
 
     <body style="background-color:#E5E5E5; display: flex; min-height: 100vh;flex-direction: column; margin:0">
@@ -249,28 +63,30 @@
         <div class = "main-body">
 
 
-            <div class = "sub-body0">
-                <div class = "sub-body">
+            <div class = "sub-body">
+                <div class = "sub-body1">
                     <div class="b-1">
                         Auto splitting: off
                     </div>
                     <div class="b-2">
-                        Splitting options
+                        <button type="button" class="notbutton" data-toggle="modal" data-target="#exampleModal">
+                            Splitting options
+                        </button>
                     </div>
                 </div>
                 <form>
                     <textarea type="text2" id="tweet" name="tweet">
                     </textarea>
 
-                    <div class = "sub-body">
+                    <div class = "sub-body2">
                         <div class="b-4">
                             Add picture
                         </div>
-                        <div>
-                            <button class = "circlebutton">
-                                +
-                            </button>                
-                        </div>
+
+                        <button class = "circlebutton">
+                            +
+                        </button>                
+
                         <div class="b-5">
                             0/280 characters used
                         </div>
@@ -284,32 +100,41 @@
 
             </div>
         </div>
-        
-        
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Launch demo modal
-</button>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
+
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="modal-title" id="exampleModalLabel">
+                            Tweet splitting allows us to formate your thread for you.
+                        </div>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+
+                    <div class="modal-footer">
+
+                        <form>
+                            <div class="b-7" data-dismiss="modal"><input type="submit2" value="cancel"></div>
+
+                            <div class="b-6">
+                                <input type="submit2" value="submit">
+                            </div>
+                        </form> 
+
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
         <div class = "main-footer">
