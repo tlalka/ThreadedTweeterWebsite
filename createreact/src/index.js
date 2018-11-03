@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+//import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 // If you want your app to work offline and load faster, you can change
@@ -15,13 +15,13 @@ serviceWorker.unregister();
 //https://github.com/facebook/create-react-app
 
 const logo1 ={
-    src:'logo.jpgX',
+    src:'src/logo.jpg',
     alt: 'logo',
     style:'width:70px;'   
 };
 
 const logo2 ={
-    src:'logo2.jpgX',
+    src:'src/logo2.jpg',
     alt: 'logo2',
     style:'width:55px;'   
 };
