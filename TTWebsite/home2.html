@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Threaded Tweeter homepage</title>
+        <link rel="Alternate stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <script src="js/jquery.min.js"></script>
+        <script src="js/modal.js"></script>
+    </head>
+
+
+
+
+    <body class = "bodystyle">
+        <div class = "main-header">
+
+            <div class = "sub-header1">
+                <div class = "h-1">
+                    <div>
+                        Tweet 
+                    </div>
+                    <div>
+                        Together
+                    </div>
+
+                </div>
+                <div class = "h-2"><img src="logo.jpg" alt="Logo" style="width:70px;"></div>
+                <div class = "h-3">Threaded Tweeter</div>
+            </div>
+
+            <div class = "sub-header2">
+
+                <div class = "h-4">
+                    <div>
+                        Username
+                    </div>
+                    <div>
+                        Password
+                    </div>
+                </div>
+
+                <div class = "h-4"> 
+                    <form>
+                        <div>
+                            <input type="text" id="username" name="username" >
+                        </div>
+                        <div>
+                            <input type="text" id="password" name="password" >
+                        </div>       
+
+                        </div>
+                    <div class = "h-5">  
+                        <input type="submit" value="Login with Twitter"> 
+                        </form>
+                </div>
+            </div>       
+        </div>
+
+
+        <div class = "main-body">
+
+
+            <div class = "sub-body">
+                <div class = "sub-body1">
+                    <div class="b-1">
+                        Auto splitting: off
+                    </div>
+                    <div class="b-2">
+                        <button type="button" class="notbutton" data-toggle="modal" data-target="#exampleModal">
+                            Splitting options
+                        </button>
+                    </div>
+                </div>
+                <form>
+                    <textarea type="text2" id="tweet" name="tweet">
+                    </textarea>
+
+                    <div class = "sub-body2">
+                        <div class="b-4">
+                            Add picture
+                        </div>
+
+                        <button class = "circlebutton">
+                            +
+                        </button>                
+
+                        <div class="b-5">
+                            0/280 characters used
+                        </div>
+                    </div>
+
+
+                    <div class="b-3">
+                        <input type="submit2" value="submit">
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="modal-title" id="exampleModalLabel">
+                            Tweet splitting allows us to formate your thread for you.
+                        </div>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+
+                    <div class="modal-footer">
+
+                        <form>
+                            <div class="b-7" data-dismiss="modal"><input type="submit2" value="cancel"></div>
+
+                            <div class="b-6">
+                                <input type="submit2" value="submit">
+                            </div>
+                        </form> 
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class = "main-footer">
+            <div class = "h-1">
+                <form action="http://google.com">
+                    <input type="link" value="help"> 
+                </form>   
+            </div>
+
+            <div class = "h-2"><img src="logo2.jpg" alt="Logo" style="width:55px;"></div>
+
+            <div class = "h-5">  
+                <form action="http://google.com">
+                    <input type="link" value="contact us"> 
+                </form>
+            </div>
+        </div> 
+    </body>
+
+</html>
