@@ -48,12 +48,27 @@ const helpbutton = <form action="http://google.com">
     <input type="link" value="help"/> 
         </form>;
 
+const splittingoptions = <div class="b-2">
+                        <button type="button" class="notbutton" data-toggle="modal" data-target="#exampleModal">
+                            Splitting options
+                        </button>
+                    </div>;
+
+const sendtweet = <div class="b-3">
+                        <input type="submit2" value="submit"/></div>;
+                        
+const charactersused = <div class="b-5">
+                            0/280 characters used
+                        </div>;
+const autosplitting = <div class="b-1">
+                        Auto splitting: off
+                    </div>;
+
 
 class Header extends React.Component {
     render() {
         return (
             <div class = "main-header">
-
             <div class = "sub-header1">
                 <div class = "h-1">
                     <div>
@@ -62,7 +77,6 @@ class Header extends React.Component {
                     <div>
                         Together
                     </div>
-
                 </div>
                 <div class = "h-2">
             <img 
@@ -72,9 +86,7 @@ class Header extends React.Component {
             </div>
                 <div class = "h-3">Threaded Tweeter</div>
             </div>
-
             <div class = "sub-header2">
-
                 <div class = "h-4">
                     <div>
                         Username
@@ -83,12 +95,8 @@ class Header extends React.Component {
                         Password
                     </div>
                 </div>
-
-                <div class = "h-4"> 
-                    
+                <div class = "h-4">    
             {login}
-            
-            
                 </div>
             </div>       
         </div>
@@ -97,10 +105,50 @@ class Header extends React.Component {
 }
 
 class Body extends React.Component {
+    constructor(props){
+        super(props);
+        this.handleaddbox = this.handleaddbox.bind(this);
+        this.handleremovebox = this.handleremovebox.bind(this);
+        this.state = {boxnum: 1};
+    }
+    handleaddbox(){
+        this.setState({boxnum : this.state.boxnum + 1});
+    }
+    handleremovebox(){
+        this.setState({boxnum : this.state.boxnum - 1});
+    }
     render() {
-        return (
-            <div> body
+        const boxnum = this.state.boxnum;
+        let button;
+        if(boxnum === 1){
+            button = <div class = "centeronebutton">
+            <button class = "circlebutton" onClick = {this.handleaddbox}>
+                            +
+                        </button>
             </div>
+        } else{
+            button = <div class = "centeronebutton">
+             <button class = "circlebutton" onClick = {this.handleremovebox}>
+                            -
+                        </button> <button class = "circlebutton" onClick = {this.handleaddbutton}>
+                            +
+                        </button>
+            </div>
+        }
+        return (
+            <div class = "main-body">
+            <div class = "sub-body">
+                <div class = "sub-body1">
+                    {autosplitting}
+                    {splittingoptions}
+                </div>
+                <form>
+                    <Tweet />
+            {button}
+                    {sendtweet}
+                </form>
+            </div>
+        </div>
         );
     }
 }
@@ -124,6 +172,23 @@ class Footer extends React.Component {
             </div>
             </div> 
         );
+    }
+}
+
+class Tweet extends React.Component{
+    render(){
+        return(
+            <div>
+            <textarea type="text2" id="tweet" name="tweet">
+                    </textarea>
+                    <div class = "sub-body2">
+                        <div class="b-4">
+                            Add picture
+                        </div>
+            {charactersused} 
+                    </div>
+            </div>
+        )
     }
 }
 

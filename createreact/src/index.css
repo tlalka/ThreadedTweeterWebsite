@@ -151,6 +151,7 @@
 
 .b-3 {
     text-align: right;
+    margin-top: -5px;
 }
 
 .b-6 {
@@ -230,11 +231,22 @@ input[type=link] {
     height: 25px;
     line-height: 10px;
     padding-bottom: 5px;
+    font-family: "Segoe UI";
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .circlebutton:hover{
     box-shadow: 2px 3px 7px 0 rgba(0,0,0,0.24), 0 3px 10px 0 rgba(0,0,0,0.19);
     transition: box-shadow 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.centeronebutton{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin-top: -18px;
 }
 
 .notbutton{
@@ -245,6 +257,7 @@ input[type=link] {
     font-size: 16px;
     cursor: pointer;
     display: inline-block;
+    color: var(--subcolor);
 }
 .close{
     color:white;
