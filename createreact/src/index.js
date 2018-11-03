@@ -64,6 +64,37 @@ const autosplitting = <div class="b-1">
                         Auto splitting: off
                     </div>;
 
+const modal =         
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="modal-title" id="exampleModalLabel">
+                            Tweet splitting allows us to formate your thread for you.
+                        </div>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+
+                    <div class="modal-footer">
+
+                        <form>
+                            <div class="b-7" data-dismiss="modal"><input type="submit2" value="cancel"/></div>
+
+                            <div class="b-6">
+                                <input type="submit2" value="submit"/>
+                            </div>
+                        </form> 
+
+                    </div>
+                </div>
+            </div>
+        </div>;
 
 class Header extends React.Component {
     render() {
