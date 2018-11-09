@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 //import App from './App';
 import * as serviceWorker from './serviceWorker';
+import axios from 'axios';
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
@@ -26,19 +27,30 @@ const logo2 ={
     style:'width:55px;'   
 };
 
-const login = <form>
-                        <div>
-                            <input type="text" id="username" name="username" />
-                        </div>
-                        <div>
-                            <input type="text" id="password" name="password" />
-                        </div>       
+class LoginButton extends React.Component {
+    constructor () {
+        super()
+        this.state = {
+            loginUrl: '',
+            resourceOwnerKeyCookie: '',
+            resourceOwnerSecretCookie: ''
+        }
 
-                        
-                    <div class = "h-5">  
-                        <input type="submit" value="Login with Twitter"/> 
-        </div>
-                        </form>;
+        axios.get('https://api.threadedtweeter.com/login').then(
+            response => this.setState({loginUrl: response.data.url,
+                                        resourceOwnerKeyCookie: response.data.cookie_1,
+                                        resourceOwnerSecretCookie: response.data.cookie_2})
+        )
+    }
+
+    render() {
+        return (
+            <div className="login_button">
+                <a className="button" href={this.state.loginUrl}>Login with Twitter</a>
+            </div>
+        )
+    }
+}
 
 const contactbutton = <form action="http://google.com">
     <input type="link" value="contact us"/>
@@ -48,45 +60,45 @@ const helpbutton = <form action="http://google.com">
     <input type="link" value="help"/> 
         </form>;
 
-const splittingoptions = <div class="b-2">
-                        <button type="button" class="notbutton" data-toggle="modal" data-target="#exampleModal">
+const splittingoptions = <div className="b-2">
+                        <button type="button" className="notbutton" data-toggle="modal" data-target="#exampleModal">
                             Splitting options
                         </button>
                     </div>;
 
-const sendtweet = <div class="b-3">
+const sendtweet = <div className="b-3">
                         <input type="submit2" value="submit"/></div>;
                         
-const charactersused = <div class="b-5">
+const charactersused = <div className="b-5">
                             0/280 characters used
                         </div>;
-const autosplitting = <div class="b-1">
+const autosplitting = <div className="b-1">
                         Auto splitting: off
                     </div>;
 
 const modal =         
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <div class="modal-title" id="exampleModalLabel">
+        <div className="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div className="modal-dialog" role="document">
+                <div className="modal-content">
+                    <div className="modal-header">
+                        <div className="modal-title" id="exampleModalLabel">
                             Tweet splitting allows us to formate your thread for you.
                         </div>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
 
                     </div>
-                    <div class="modal-body">
+                    <div className="modal-body">
                         ...
                     </div>
 
-                    <div class="modal-footer">
+                    <div className="modal-footer">
 
                         <form>
-                            <div class="b-7" data-dismiss="modal"><input type="submit2" value="cancel"/></div>
+                            <div className="b-7" data-dismiss="modal"><input type="submit2" value="cancel"/></div>
 
-                            <div class="b-6">
+                            <div className="b-6">
                                 <input type="submit2" value="submit"/>
                             </div>
                         </form> 
@@ -99,9 +111,9 @@ const modal =
 class Header extends React.Component {
     render() {
         return (
-            <div class = "main-header">
-            <div class = "sub-header1">
-                <div class = "h-1">
+            <div className = "main-header">
+            <div className = "sub-header1">
+                <div className = "h-1">
                     <div>
                         Tweet 
                     </div>
@@ -109,25 +121,17 @@ class Header extends React.Component {
                         Together
                     </div>
                 </div>
-                <div class = "h-2">
+                <div className = "h-2">
             <img 
             src={logo1.src}
             alt={logo1.alt}
             style={logo1.width} />            
             </div>
-                <div class = "h-3">Threaded Tweeter</div>
+                <div className = "h-3">Threaded Tweeter</div>
             </div>
-            <div class = "sub-header2">
-                <div class = "h-4">
-                    <div>
-                        Username
-                    </div>
-                    <div>
-                        Password
-                    </div>
-                </div>
-                <div class = "h-4">    
-            {login}
+            <div className = "sub-header2">
+                <div className = "h-4">    
+                     <LoginButton />
                 </div>
             </div>       
         </div>
@@ -152,24 +156,24 @@ class Body extends React.Component {
         const boxnum = this.state.boxnum;
         let button;
         if(boxnum === 1){
-            button = <div class = "centeronebutton">
-            <button class = "circlebutton" onClick = {this.handleaddbox}>
+            button = <div className = "centeronebutton">
+            <button className = "circlebutton" onClick = {this.handleaddbox}>
                             +
                         </button>
             </div>
         } else{
-            button = <div class = "centeronebutton">
-             <button class = "circlebutton" onClick = {this.handleremovebox}>
+            button = <div className = "centeronebutton">
+             <button className = "circlebutton" onClick = {this.handleremovebox}>
                             -
-                        </button> <button class = "circlebutton" onClick = {this.handleaddbutton}>
+                        </button> <button className = "circlebutton" onClick = {this.handleaddbutton}>
                             +
                         </button>
             </div>
         }
         return (
-            <div class = "main-body">
-            <div class = "sub-body">
-                <div class = "sub-body1">
+            <div className = "main-body">
+            <div className = "sub-body">
+                <div className = "sub-body1">
                     {autosplitting}
                     {splittingoptions}
                 </div>
@@ -188,17 +192,17 @@ class Footer extends React.Component {
     render() {
         return (
 
-            <div class = "main-footer">
-            <div class = "h-1">
+            <div className = "main-footer">
+            <div className = "h-1">
             {helpbutton}
             </div>
-            <div class = "h-2">
+            <div className = "h-2">
             <img 
             src={logo2.src}
             alt={logo2.alt}
             style={logo2.width} />
             </div>
-            <div class = "h-5">  
+            <div className = "h-5">  
             {contactbutton}
             </div>
             </div> 
@@ -212,8 +216,8 @@ class Tweet extends React.Component{
             <div>
             <textarea type="text2" id="tweet" name="tweet">
                     </textarea>
-                    <div class = "sub-body2">
-                        <div class="b-4">
+                    <div className = "sub-body2">
+                        <div className="b-4">
                             Add picture
                         </div>
             {charactersused} 
