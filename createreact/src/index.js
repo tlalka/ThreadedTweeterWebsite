@@ -165,7 +165,7 @@ class Body extends React.Component {
                             +
                         </button>
             </div>
-        }
+        }    
         return (
             <div class = "main-body">
             <div class = "sub-body">
@@ -174,7 +174,7 @@ class Body extends React.Component {
                     {splittingoptions}
                 </div>
                 <form>
-                    <Tweet />
+            <Tweet />
             {button}
                     {sendtweet}
                 </form>
