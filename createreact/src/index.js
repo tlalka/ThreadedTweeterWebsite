@@ -27,6 +27,19 @@ const logo2 ={
     style:'width:55px;'   
 };
 
+const tweet =
+    <div>
+            <textarea type="text2" id="tweet" name="tweet">
+                    </textarea>
+                    <div className = "sub-body2">
+                        <div className="b-4">
+                            Add picture
+                        </div>
+            {charactersused} 
+                    </div>
+            </div>
+;
+
 class LoginButton extends React.Component {
     constructor () {
         super()
@@ -144,16 +157,28 @@ class Body extends React.Component {
         super(props);
         this.handleaddbox = this.handleaddbox.bind(this);
         this.handleremovebox = this.handleremovebox.bind(this);
-        this.state = {boxnum: 1};
+        const boxnum = {index: 1, content:tweet};
+        const boxes = [];
+        boxes.push({boxnum});
+        this.state = {boxes};
+        
+        
     }
     handleaddbox(){
-        this.setState({boxnum : this.state.boxnum + 1});
+        const newBoxes = this.state.boxes;
+        newBoxes.push({index: newBoxes.length, content:tweet});
+        this.setState({boxes : newBoxes});
+        console.log("handleaddbox " + this.state.boxes.length);
     }
     handleremovebox(){
-        this.setState({boxnum : this.state.boxnum - 1});
+        const newBoxes = this.state.boxes;
+        newBoxes.splice((newBoxes.length-1),1);
+        this.setState({boxes : newBoxes});
+        console.log("handleremovebox " + this.state.boxes.length);
     }
     render() {
-        const boxnum = this.state.boxnum;
+        const boxes = this.state.boxes;
+        const boxnum = boxes.length;
         let button;
         if(boxnum === 1){
             button = <div className = "centeronebutton">
@@ -165,7 +190,8 @@ class Body extends React.Component {
             button = <div className = "centeronebutton">
              <button className = "circlebutton" onClick = {this.handleremovebox}>
                             -
-                        </button> <button className = "circlebutton" onClick = {this.handleaddbutton}>
+                        </button>
+            <button className = "circlebutton" onClick = {this.handleaddbox}>
                             +
                         </button>
             </div>
@@ -177,16 +203,34 @@ class Body extends React.Component {
                     {autosplitting}
                     {splittingoptions}
                 </div>
-                <form>
-                    <Tweet />
+<Tweets boxes={boxes}/>             
             {button}
                     {sendtweet}
-                </form>
+
             </div>
         </div>
         );
     }
 }
+
+const Tweets = ({boxes}) => (
+<div>
+    {
+        boxes.map( box =>(
+        <div key = {box.index}>
+    <textarea type="text2" id="tweet" name="tweet">
+                    </textarea>
+                    <div className = "sub-body2">
+                        <div className="b-4">
+                            Add picture
+                        </div>
+            {charactersused} 
+                    </div>
+    </div>
+        ))
+    }
+    </div>
+) 
 
 class Footer extends React.Component {
     render() {
