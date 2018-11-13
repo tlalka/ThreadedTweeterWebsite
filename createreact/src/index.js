@@ -4,6 +4,9 @@ import './index.css';
 //import App from './App';
 import * as serviceWorker from './serviceWorker';
 import axios from 'axios';
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies();
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
@@ -36,11 +39,25 @@ class LoginButton extends React.Component {
             resourceOwnerSecretCookie: ''
         }
 
-        axios.get('https://api.threadedtweeter.com/login').then(
-            response => this.setState({loginUrl: response.data.url,
-                                        resourceOwnerKeyCookie: response.data.cookie_1,
-                                        resourceOwnerSecretCookie: response.data.cookie_2})
-        )
+              
+    }
+
+    componentDidMount() {
+        axios.get('https://api.threadedtweeter.com/login?mode=webapp').then(
+            response => {
+                this.setState({
+                    loginUrl : response.data.url,
+                    resourceOwnerKeyCookie : response.data.cookie_1,
+                    resourceOwnerSecretCookie : response.data.cookie_2
+                })
+
+                let keyCookie = this.state.resourceOwnerKeyCookie.split(";")[0].split("=")[1];
+                let secretCookie = this.state.resourceOwnerSecretCookie.split(";")[0].split("=")[1];
+
+                cookies.set('resource_owner_key', keyCookie, {path : '/', expires : new Date('2020-1-1')});
+                cookies.set('resource_owner_secret', secretCookie, {path : '/', expires : new Date('2020-1-1')});
+            } 
+        ); 
     }
 
     render() {
